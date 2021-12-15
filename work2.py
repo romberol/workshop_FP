@@ -15,11 +15,11 @@ def check_done(df):
         return
     elif inputt != None:
         what_to_del = inputt
-        if what_to_del not in df["Date"]:
+        if what_to_del not in df["Date"].values:
             print("Please enter an existing date")
             # check_done(df)
         else:
-            df = df[df != what_to_del]
+            df = df.loc[df["Date"] != what_to_del]
     return df
 
 def add_deadlines(table):
@@ -40,7 +40,3 @@ press enter twice, if that is all')
         newdata_ls.append(new_datum)
     newdata_ls.sort(key=lambda x: ''.join(x[0].split(':'))[::-1])
     return pd.DataFrame(data = newdata_ls, columns=table.columns)
-
-
-def check_input():
-    pass
