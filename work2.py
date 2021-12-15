@@ -9,8 +9,19 @@ def readfile():
     return data
 
 def check_done(table):
-    pass
-
+    def check_done(df):
+    print("What deadline would you like to remove? Or type 'None'")
+    inputt = input()
+    if inputt == None:
+        return
+    elif inputt != None:
+        what_to_del = inputt
+        if what_to_del not in df["Date"]:
+            print("Please enter an existing date")
+            # check_done(df)
+        else:
+            df = df[df != what_to_del]
+    return df
 
 def add_deadlines(table):
     newdata_ls = []
