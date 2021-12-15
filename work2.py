@@ -8,8 +8,7 @@ def readfile():
         data.to_csv("deadline.csv", encoding='utf-8', index=False)
     return data
 
-def check_done(table):
-    def check_done(df):
+def check_done(df):
     print("What deadline would you like to remove? Or type 'None'")
     inputt = input()
     if inputt == None:
